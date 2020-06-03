@@ -27,11 +27,15 @@ function addCommas(x) {
 }
 
 async function updatePost(postId) {
-  const { page_views_count, public_reactions_count } = await getPost(postId);
+  const {
+    page_views_count,
+    public_reactions_count,
+    comments_count,
+  } = await getPost(postId);
   const data = {
-    title: `This Post Has ${addCommas(page_views_count)} Views And ${addCommas(
+    title: `This Post Has ${addCommas(page_views_count)} Views, ${addCommas(
       public_reactions_count
-    )} Reactions`,
+    )} Reactions And ${addCommas(comments_count)} Comments`,
   };
   const res = await axios.put(`${articlesEndpoint}/${postId}`, data, {
     headers: {
