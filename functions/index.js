@@ -26,7 +26,7 @@ function addCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-async function updatePostTitle(postId) {
+async function updatePost(postId) {
   const { page_views_count } = await getPost(postId);
   const data = {
     title: `This Post Has ${addCommas(page_views_count)} Views`,
@@ -43,5 +43,5 @@ exports.updatePostTitle = functions.pubsub
   .schedule("every 3 minutes")
   .onRun(() => {
     const postId = functions.config().dev.post_id;
-    return updatePostTitle(postId);
+    return updatePost(postId);
   });
