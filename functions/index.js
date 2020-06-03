@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const articlesEndpoint = "https://dev.to/api/articles";
 
-async function getPageViewsCount(postId, pageNo = 1) {
+async function getPost(postId, pageNo = 1) {
   const { data } = await axios.get(
     `${articlesEndpoint}/me/all?per_page=10&page=${pageNo}`,
     {
@@ -27,7 +27,7 @@ function addCommas(x) {
 }
 
 async function updatePostTitle(postId) {
-  const { page_views_count } = await getPageViewsCount(postId);
+  const { page_views_count } = await getPost(postId);
   const data = {
     title: `This Post Has ${addCommas(page_views_count)} Views`,
   };
