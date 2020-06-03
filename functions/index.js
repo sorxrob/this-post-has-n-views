@@ -16,7 +16,7 @@ async function getPost(postId, pageNo = 1) {
   const post = data.find((i) => i.id == postId);
 
   if (!post) {
-    return getPageViewsCount(postId, pageNo + 1);
+    return getPost(postId, pageNo + 1);
   }
 
   return post;
