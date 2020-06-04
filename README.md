@@ -1,6 +1,6 @@
 # Update DEV Post Title Programmatically.
 
-This sample shows how to automatically update a DEV post title in the background.
+This sample shows how to automatically update a [DEV post](https://dev.to/wobsoriano/this-post-has-22-views-5ed6) title in the background.
 
 Further reading:
 
